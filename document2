@@ -1,0 +1,138 @@
+//document for review 1
+#include<all_contents_of_prev_document>
+#include<http://www.openstack.org/software/>
+#include<http://en.wikipedia.org/wiki/OpenStack>
+//text within /* */ has to be checked if needed to be added
+
+
+OpenStack 
+1.1INTRODUCTION
+OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources 
+throughout a datacenter, all managed through a dashboard that gives 
+administrators control while empowering their users to provision resources through a web interface.
+
+1.2OPENSTACK COMPUTE
+The OpenStack cloud operating system enables enterprises and service providers to offer on-demand computing resources,
+by provisioning and managing large networks of virtual machines. Compute resources are accessible via APIs for
+developers building cloud applications and via web interfaces for administrators and users. The compute architecture
+is designed to scale horizontally on standard hardware, enabling the cloud economics companies have come to expect.
+
+1.2.1FLEXIBLE ARCHITECTURE
+OpenStack is architected to provide flexibility as you design your cloud, with no proprietary hardware or software 
+requirements and the ability to integrate with legacy systems and third party technologies. It is designed to manage
+and automate pools of compute resources and can work with widely available virtualization technologies, as well as 
+bare metal and high-performance computing (HPC) configurations.
+
+Administrators often deploy OpenStack Compute using one of multiple supported hypervisors in a virtualized environment.
+KVM and XenServer are popular choices for hypervisor technology and recommended for most use cases. /*Linux container
+technology such as LXC is also supported for scenarios where users wish to minimize virtualization overhead and 
+achieve greater efficiency and performance. In addition to different hypervisors, OpenStack supports ARM and 
+alternative hardware architectures.*/
+
+1.2.2POPULAR USE CASES:
+
+Service providers offering an IaaS compute platform or services higher up the stack
+IT departments acting as cloud service providers for business units and project teams
+Processing big data with tools like Hadoop
+Scaling compute up and down to meet demand for web resources and applications
+High-performance computing (HPC) environments processing diverse and intensive workloads
+
+1.2.3FEATURES AND BENEFITS:
+// ADD ONLY WAT IS REQUIRED (4-6 MAY BE FROM THE LIST AT http://www.openstack.org/software/openstack-compute/
+In addition to traditional enterprise-class storage technology, many organizations now have a variety of storage needs with varying performance and price requirements. OpenStack has support for both Object Storage and Block Storage, with many deployment options for each depending on the use case. 
+
+1.3OPEN STACK STORAGE:
+Object Storage is ideal for cost effective, scale-out storage. It provides a fully distributed, API-accessible storage platform that can be integrated directly into applications or used for backup, archiving and data retention. Block Storage allows block devices to be exposed and connected to compute instances for expanded storage, better performance and integration with enterprise storage platforms, such as NetApp, Nexenta and SolidFire.
+
+1.3.1Object Storage Capabilities
+
+OpenStack provides redundant, scalable object storage using clusters of standardized servers capable of storing petabytes of data
+Object Storage is not a traditional file system, but rather a distributed storage system for static data such as virtual machine images, photo storage, email storage, backups and archives. Having no central "brain" or master point of control provides greater scalability, redundancy and durability.
+Objects and files are written to multiple disk drives spread throughout servers in the data center, with the OpenStack software responsible for ensuring data replication and integrity across the cluster.
+Storage clusters scale horizontally simply by adding new servers. Should a server or hard drive fail, OpenStack replicates its content from other active nodes to new locations in the cluster. Because OpenStack uses software logic to ensure data replication and distribution across different devices, inexpensive commodity hard drives and servers can be used in lieu of more expensive equipment.
+
+1.3.2Block Storage Capabilities
+
+OpenStack provides persistent block level storage devices for use with OpenStack compute instances.
+The block storage system manages the creation, attaching and detaching of the block devices to servers. Block storage volumes are fully integrated into OpenStack Compute and the Dashboard allowing for cloud users to manage their own storage needs.
+In addition to using simple Linux server storage, it has unified storage support for numerous storage platforms including Ceph, NetApp, Nexenta, SolidFire, and Zadara.
+Block storage is appropriate for performance sensitive scenarios such as database storage, expandable file systems, or providing a server with access to raw block level storage.
+Snapshot management provides powerful functionality for backing up data stored on block storage volumes. Snapshots can be restored or used to create a new block storage volume.
+
+1.3.3 FEATURES AND BENEFITS:
+// ADD ONLY WAT IS REQUIRED (4-6 MAY BE FROM THE LIST AT http://www.openstack.org/software/openstack-storage/
+
+1.4 OPENSTACK NETWORKING
+OpenStack Networking is a pluggable, scalable and API-driven system for managing networks and IP addresses. Like other aspects of the cloud operating system, it can be used by administrators and users to increase the value of existing datacenter assets. OpenStack Networking ensures the network will not be the bottleneck or limiting factor in a cloud deployment and gives users real self service, even over their network configurations.
+
+1.4.1Networking Capabilities
+
+->OpenStack provides flexible networking models to suit the needs of different applications or user groups. Standard models include flat networks or VLANs for separation of servers and traffic.
+->OpenStack Networking manages IP addresses, allowing for dedicated static IPs or DHCP. Floating IPs allow traffic to be dynamically rerouted to any of your compute resources, which allows you to redirect traffic during maintenance or in the case of failure. 
+->Users can create their own networks, control traffic and connect servers and devices to one or more networks.
+->The pluggable backend architecture lets users take advantage of commodity gear or advanced networking services from supported vendors.
+->Administrators can take advantage of software-defined networking (SDN) technology like OpenFlow to allow for high levels of multi-tenancy and massive scale.
+->OpenStack Networking has an extension framework allowing additional network services, such as intrusion detection systems (IDS), load balancing, firewalls and virtual private networks (VPN) to be deployed and managed.
+
+1.5 OPEN STACK DASHBOARD
+The OpenStack dashboard provides administrators and users a graphical interface to access, provision and automate cloud-based resources. The extensible design makes it easy to plug in and expose third party products and services, such as billing, monitoring and additional management tools. The dashboard is also brandable for service providers and other commercial vendors who want to make use of it.
+
+The dashboard is just one way to interact with OpenStack resources. Developers can automate access or build tools to manage their resources using the native OpenStack API or the EC2 compatibility API.
+
+1.5.1 Dashboard Capabilities
+
+->The dashboard is an extensible web app that allows cloud administrators and users to control their compute, storage and networking resources.
+->As a cloud administrator, the dashboard provides an overall view of the size and state of your cloud. You can create users and projects, assign users to projects and set limits on the resources for those projects.
+->The dashboard provides users a self-service portal to provision their own resources within the limits set by administrators.
+
+1.6 OPEN STACK SHARED SERVICE // is this portion neeeded?
+
+OpenStack has several shared services that span the three pillars of compute, storage and networking, making it easier to implement and operate your cloud. These services — including identity, image management and a web interface — integrate the OpenStack components with each other as well as external systems to provide a unified experience for users as they interact with different cloud resources.
+
+1.6.1Identity Service
+
+OpenStack Identity provides a central directory of users mapped to the OpenStack services they can access. It acts as a common authentication system across the cloud operating system and can integrate with existing backend directory services like LDAP. It supports multiple forms of authentication including standard username and password credentials, token-based systems and AWS-style logins.
+
+Additionally, the catalog provides a queryable list of all of the services deployed in an OpenStack cloud in a single registry. Users and third-party tools can programmatically determine which resources they can access.
+
+As an administrator, OpenStack Identity enables you to:
+
+Configure centralized policies across users and systems
+Create users and tenants and define permissions for compute, storage and networking resources using role-based access control (RBAC) features
+Integrate with an existing directory like LDAP, allowing for a single source of identity authentication across the enterprise
+As a user, OpenStack Identity enables you to:
+
+Get a list of the services that you can access
+Make API requests or log into the web dashboard to create resources owned by your account
+1.6.2Image Service
+
+The OpenStack Image Service provides discovery, registration and delivery services for disk and server images. The ability to copy or snapshot a server image and immediately store it away is a powerful capability of the OpenStack cloud operating system. Stored images can be used as a template to get new servers up and running quicklyand more consistently if you are provisioning multiple serversthan installing a server operating system and individually configuring additional services. It can also be used to store and catalog an umlimited number of backups.
+
+The Image Service can store disk and server images in a variety of back-ends, including OpenStack Object Storage.  The Image Service API provides a standard REST interface for querying information about disk images and lets clients stream the images to new servers.
+
+Capabilities of the Image Service include:
+
+Administrators can create base templates from which their users can start new compute instances
+Users can choose from available images, or create their own from existing servers
+Snapshots can also be stored in the Image Service so that virtual machines can be backed up quickly
+A multi-format image registry, the image service allows uploads of private and public images in a variety of formats, including:
+
+Raw
+Machine (kernel/ramdisk outside of image, a.k.a. AMI)
+VHD (Hyper-V)
+VDI (VirtualBox)
+qcow2 (Qemu/KVM)
+VMDK (VMWare)
+OVF (VMWare, others)
+1.6.3Telemetry Service
+
+The OpenStack Telemetry service aggregates usage and performance data across the services deployed in an OpenStack cloud. This powerful capability provides visibility and insight into the usage of the cloud across dozens of data points and allows cloud operators to view metrics globally or by individual deployed resources.
+
+1.6.4Orchestration Service
+
+OpenStack Orchestration is a template-driven engine that allows application developers to describe and automate the deployment of infrastructure. The flexible template language can specify compute, storage and networking configurations as well as detailed post-deployment activity to automate the full provisioning of infrastructure as well as services and applications. Through integration with the Telemetry service, the Orchestration engine can also perform auto-scaling of certain infrastructure elements.
+
+1.6.5Database Service
+
+Designed to run entirely on OpenStack, the service has the goal of allowing users to quickly and easily utilize the features of a relational database without the burden of handling complex administrative tasks. Cloud users and database administrators can provision and manage multiple database instances as needed. Initially, the service will focus on providing resource isolation at high performance while automating complex administrative tasks including deployment, configuration, patching, backups, restores, and monitoring.
+
